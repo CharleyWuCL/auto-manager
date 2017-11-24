@@ -7,6 +7,146 @@
   <groupId>charley.wu</groupId>
   <artifactId>auto-manager</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>am-customer</module>
+    <module>am-vehicle</module>
+    <module>am-stock</module>
+    <module>am-storage</module>
+    <module>am-finance</module>
+    <module>am-portal</module>
+    <module>am-common</module>
+    <module>am-util</module>
+  </modules>
+  <packaging>pom</packaging>
 
+  <name>Auto Manager</name>
+  <description>修理厂管理工具</description>
+  <url>https://github.com/CharleyWuCL/auto-manager</url>
 
+  <scm>
+    <url>git@github.com:CharleyWuCL/auto-manager.git</url>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>Charley Wu</id>
+      <name>Charley Wu</name>
+      <email>charleywu@aliyun.com</email>
+    </developer>
+  </developers>
+
+  <properties>
+    <java.version>1.7</java.version>
+    <encoding>UTF-8</encoding>
+    <junit.version>4.12</junit.version>
+    <guava.version>20.0</guava.version>
+    <slf4j.version>1.7.21</slf4j.version>
+    <log4j.version>2.7</log4j.version>
+    <mysql.connector.version>5.1.40</mysql.connector.version>
+    <h2database.version>1.4.193</h2database.version>
+  </properties>
+
+  <dependencyManagement>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <testSource>${java.version}</testSource>
+          <testTarget>${java.version}</testTarget>
+          <encoding>${encoding}</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.4.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <encoding>${encoding}</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.10</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.3.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.0</version>
+      </plugin>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <version>2.2.0</version>
+        <executions>
+          <execution>
+            <id>get-the-git-infos</id>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <verbose>true</verbose>
+          <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+          <generateGitPropertiesFile>true</generateGitPropertiesFile>
+          <failOnNoGitDirectory>false</failOnNoGitDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
